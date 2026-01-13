@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KIN計算（閏日スキップ方式）</title>
+  <title>KIN計算</title>
   <style>
     body{font-family:system-ui,-apple-system,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;max-width:760px;margin:24px auto;padding:0 16px}
     .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin-top:16px}
@@ -19,7 +19,7 @@
   </style>
 </head>
 <body>
-  <h1>KINナンバー計算（閏日スキップ方式）</h1>
+  <h1>KINナンバー計算</h1>
   <p class="muted">
     このページは「2/29を日数として数えない」方式です（＝2/29と3/1が同じKIN）。
   </p>
@@ -31,7 +31,7 @@
         <input id="birth" type="date" />
         <button id="calc">計算する</button>
       </div>
-      <div class="pill">基準：1988/12/18 → KIN24</div>
+     
       <div class="pill">表示順：音 → 太陽 → WS → KIN</div>
     </div>
   </div>
@@ -134,15 +134,6 @@
   });
 
   // 検算（君が挙げた日付＋2/29挙動チェック）
-  const tests = [
-    ["1988/12/18", 1988,12,18, "期待：KIN24 / 音11 / 黄色い種 / WS 白い魔法使い"],
-    ["1990/12/20", 1990,12,20, "期待：KIN236 / 音2 / 黄色い戦士 / WS 青い鷲"],
-    ["1988/07/07", 1988, 7, 7, "期待：KIN120 / 音3 / 黄色い太陽 / WS 白い鏡"],
-    ["1994/05/05", 1994, 5, 5, "君のサイト：KIN167（音11 太陽 青い手 / WS 赤い地球）"],
-    ["1992/02/28", 1992, 2,28, "閏日前日（参考）"],
-    ["1992/02/29", 1992, 2,29, "2/29（※3/1と同じKINになるはず）"],
-    ["1992/03/01", 1992, 3, 1, "3/1（※2/29と同じKINになるはず）"],
-  ];
 
   document.getElementById("check").innerHTML = tests.map(([label,y,m,d,note])=>{
     const kin = kinFromDate(y,m,d);
